@@ -10,12 +10,12 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<h1>Hello from jsp</h1>
-<jsp:useBean id="mybean"    class="beans.MyBean" scope="request"/>
+<h1>Hello from Payara Server</h1>
 <table>
-    <c:forEach items="${mybean.people}" var="p">
+    <c:forEach var="p" items="${mybean.people}" >
         <tr>
             <td>${p.id}</td><td>${p.name}</td><td>${p.age}</td>
         </tr>
