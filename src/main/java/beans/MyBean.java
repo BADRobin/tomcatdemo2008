@@ -8,9 +8,7 @@ public class MyBean {
     public MyBean(List<Person> people) {
         this.people = people;
     }
-    public MyBean(){
 
-    }
     public List<Person> getPeople() {
         return people;
     }

@@ -6,6 +6,7 @@ import dao.PersonDAO;
 
 import javax.annotation.Resource;
 import javax.ejb.EJB;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,11 +23,17 @@ import java.util.List;
 
 @WebServlet(name = "MyServlet", urlPatterns = {"*.html"})
 public class MyServlet extends HttpServlet {
-    @EJB
+
     PersonDAO personDAO;
 
-    @Resource(name = "jdbs/test1")
+    @Resource(name = "jdbc/test1")
     DataSource ds;
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        personDAO = new PersonDAO(ds);
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
